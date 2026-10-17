@@ -14,7 +14,51 @@ const rows: Row[] = [
   ['Slow Lantern', 'Dev Anand Jr.', 'Quiet Hours', 'Focus', 66, 52, [0, 2, 4, 5, 7, 9, 11], 'sine', '#6fcf97', 53],
   ['Paper Boats', 'Meera Pillai', 'Quiet Hours', 'Focus', 76, 50, [0, 2, 4, 7, 9], 'triangle', '#e0c36a', 67],
 ]
-export const BUILTIN: Track[] = rows.map((a, i) => ({
-  id: 'b' + i, kind: 'synth', title: a[0], artist: a[1], album: a[2], genre: a[3],
-  bpm: a[4], root: a[5], sc: a[6], wave: a[7], seed: a[9], cover: art(a[8], a[9]),
-}))
+
+export const BUILTIN: Track[] = [
+  ...rows.map((a, i) => ({
+    id: 'b' + i,
+    kind: 'synth' as const,
+    title: a[0],
+    artist: a[1],
+    album: a[2],
+    genre: a[3],
+    bpm: a[4],
+    root: a[5],
+    sc: a[6],
+    wave: a[7],
+    seed: a[9],
+    cover: art(a[8], a[9]),
+  })),
+
+  {
+    id: 'song-1',
+    kind: 'file',
+    title: 'My First Song',
+    artist: 'Artist One',
+    album: 'My Playlist',
+    genre: 'Pop',
+    cover: art('#7a6cf0', 101),
+    url: '/melody-music-player/music/song1.mp3',
+  },
+  {
+    id: 'song-2',
+    kind: 'file',
+    title: 'My Second Song',
+    artist: 'Artist Two',
+    album: 'My Playlist',
+    genre: 'Chill',
+    cover: art('#3fb6c9', 102),
+    url: '/melody-music-player/music/song2.mp3',
+  },
+  {
+    id: 'song-3',
+    kind: 'file',
+    title: 'My Third Song',
+    artist: 'Artist Three',
+    album: 'My Playlist',
+    genre: 'Dance',
+    cover: art('#f26b8f', 103),
+    url: '/melody-music-player/music/song3.mp3',
+  },
+]
