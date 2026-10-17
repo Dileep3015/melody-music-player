@@ -1,11 +1,35 @@
 import type { Track } from '../types'
 import { rng } from './synth'
+
 export function art(c: string, s: number): string {
-  const r = rng(s * 7 + 1); let o = ''
-  for (let i = 0; i < 5; i++) o += `<circle cx="${(r() * 200) | 0}" cy="${(r() * 200) | 0}" r="${(30 + r() * 60) | 0}" fill="#fff" fill-opacity="${(0.08 + r() * 0.18).toFixed(2)}"/>`
-  return 'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c}"/><stop offset="1" stop-color="#1c1530"/></linearGradient></defs><rect width="200" height="200" fill="url(#g)"/>${o}</svg>`)
+  const r = rng(s * 7 + 1)
+  let o = ''
+
+  for (let i = 0; i < 5; i++) {
+    o += `<circle cx="${(r() * 200) | 0}" cy="${(r() * 200) | 0}" r="${(30 + r() * 60) | 0}" fill="#fff" fill-opacity="${(0.08 + r() * 0.18).toFixed(2)}"/>`
+  }
+
+  return (
+    'data:image/svg+xml;utf8,' +
+    encodeURIComponent(
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c}"/><stop offset="1" stop-color="#1c1530"/></linearGradient></defs><rect width="200" height="200" fill="url(#g)"/>${o}</svg>`
+    )
+  )
 }
-type Row = [string, string, string, string, number, number, number[], OscillatorType, string, number]
+
+type Row = [
+  string,
+  string,
+  string,
+  string,
+  number,
+  number,
+  number[],
+  OscillatorType,
+  string,
+  number
+]
+
 const rows: Row[] = [
   ['Night Bus Home', 'Ravi Kanth', 'After Hours', 'Chill', 84, 57, [0, 3, 5, 7, 10], 'triangle', '#7a6cf0', 11],
   ['Monsoon Window', 'Aarti Rao', 'After Hours', 'Chill', 72, 53, [0, 2, 4, 7, 9], 'sine', '#3fb6c9', 23],
@@ -34,31 +58,31 @@ export const BUILTIN: Track[] = [
   {
     id: 'song-1',
     kind: 'file',
-    title: 'My First Song',
-    artist: 'Artist One',
-    album: 'My Playlist',
-    genre: 'Pop',
-    cover: art('#7a6cf0', 101),
+    title: 'Happy Days',
+    artist: 'Harshika, Mickey J. Meyer',
+    album: 'Happy Days (Original Motion Picture Soundtrack)',
+    genre: 'Telugu Film Song',
+    cover: '/melody-music-player/images/happy-days.jpg',
     url: '/melody-music-player/music/song1.mp3',
   },
   {
     id: 'song-2',
     kind: 'file',
-    title: 'My Second Song',
-    artist: 'Artist Two',
-    album: 'My Playlist',
-    genre: 'Chill',
-    cover: art('#3fb6c9', 102),
+    title: 'Puthiyoru Lokam',
+    artist: 'Bhadra Rajin, Hesham Abdul Wahab, Vimal Roy',
+    album: 'Hridayam (Original Motion Picture Soundtrack)',
+    genre: 'Malayalam Film Song',
+    cover: '/melody-music-player/images/puthiyoru-lokam.jpg',
     url: '/melody-music-player/music/song2.mp3',
   },
   {
     id: 'song-3',
     kind: 'file',
-    title: 'My Third Song',
-    artist: 'Artist Three',
-    album: 'My Playlist',
-    genre: 'Dance',
-    cover: art('#f26b8f', 103),
+    title: 'Reppalaninda',
+    artist: 'Haricharan, Chaitan Bharadwaj',
+    album: 'RX 100 (Original Motion Picture Soundtrack)',
+    genre: 'Telugu Film Song',
+    cover: '/melody-music-player/images/reppalanindaa.jpg',
     url: '/melody-music-player/music/song3.mp3',
   },
 ]
