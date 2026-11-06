@@ -77,3 +77,31 @@ footer{font-size:18px}dialog{width:min(520px,92vw)}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 nav button:focus-visible,.card:focus-visible{outline-offset:-2px}
+/* Spotify player - original purple theme */
+.spotify-section {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.spotify-heading {
+  margin-bottom: 16px;
+}
+
+.spotify-heading h2 {
+  color: var(--text);
+}
+
+.spotify-heading p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.spotify-section iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+}

@@ -116,7 +116,7 @@ export function Spotify() {
 
      <iframe
       title="For You Loved One - Spotify Playlist"
-      src="https://open.spotify.com/embed/playlist/3KJoh5Pn2NV7c0sjjbeanX?utm_source=generator&theme=0"
+      src="https://open.spotify.com/embed/playlist/3KJoh5Pn2NV7c0sjjbeanX?utm_source=generator&theme=1"
       width="100%"
       height="500"
       style={{
@@ -124,7 +124,7 @@ export function Spotify() {
         border: 0,
       }}
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="eager"
+      loading="lazy"
       allowFullScreen
     />
     </section>
