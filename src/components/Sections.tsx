@@ -106,3 +106,27 @@ export function Upload({ tracks, cur, h, onSave }: Base & { onSave: (r: UploadRe
     <TrackList tracks={ups} cur={cur} h={h} mode="up" empty="Nothing uploaded yet. Added songs show up in Songs and Albums too." />
   </>)
 }
+export function Spotify() {
+  return (
+    <section className="spotify-section">
+      <div className="spotify-heading">
+        <h2>For You Loved One</h2>
+        <p>Your favourite Spotify collection</p>
+      </div>
+
+     <iframe
+      title="For You Loved One - Spotify Playlist"
+      src="https://open.spotify.com/embed/playlist/3KJoh5Pn2NV7c0sjjbeanX?utm_source=generator&theme=0"
+      width="100%"
+      height="500"
+      style={{
+        borderRadius: '12px',
+        border: 0,
+      }}
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="eager"
+      allowFullScreen
+    />
+    </section>
+  )
+}

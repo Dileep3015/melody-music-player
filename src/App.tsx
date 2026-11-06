@@ -5,10 +5,16 @@ import { hydrate, loadPls, loadUploads, removeUpload, saveUpload, savePls, type 
 import { downloadTrack } from './lib/download'
 import { usePlayer } from './hooks/usePlayer'
 import Player from './components/Player'
-import { Albums, PlaylistsView, Songs, Upload } from './components/Sections'
+import { Albums, PlaylistsView, Songs, Upload, Spotify } from './components/Sections'
 import type { Track } from './types'
 
-const TABS: [View, string][] = [['songs', 'Songs'], ['albums', 'Albums'], ['playlists', 'My playlists'], ['upload', 'Upload']]
+const TABS: [View, string][] = [
+  ['songs', 'Songs'],
+  ['albums', 'Albums'],
+  ['playlists', 'My playlists'],
+  ['upload', 'Upload'],
+  ['spotify', 'Spotify'],
+]
 
 export default function App() {
   const [uploads, setUploads] = useState<Track[]>([])
@@ -64,11 +70,24 @@ export default function App() {
       <nav role="tablist" aria-label="Sections">
         {TABS.map(([v, label]) => <button key={v} role="tab" aria-selected={view === v} onClick={() => setView(v)}>{label}</button>)}
       </nav>
-      <main>
+     <main>
         {view === 'songs' && <Songs {...base} />}
+
         {view === 'albums' && <Albums {...base} />}
-        {view === 'playlists' && <PlaylistsView {...base} pls={pls} setPls={setPls} toast={toast} />}
-        {view === 'upload' && <Upload {...base} onSave={saveNew} />}
+
+        {view === 'playlists' && (
+          <PlaylistsView
+            {...base}
+            pls={pls}
+            setPls={setPls}
+            toast={toast}
+          />
+        )}
+
+        {view === 'upload' && (
+          <Upload {...base} onSave={saveNew} />
+        )}
+        {view === 'spotify' && <Spotify />}
       </main>
       <footer>Uploads, playlists and covers are saved privately in this browser.</footer>
       <dialog ref={dlg}>

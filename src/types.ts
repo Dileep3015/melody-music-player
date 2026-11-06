@@ -7,7 +7,7 @@ export interface Track {
   url?: string; blob?: Blob; ext?: string
 }
 export type Playlists = Record<string, string[]>
-export type View = 'songs' | 'albums' | 'playlists' | 'upload'
+export type View = 'songs' | 'albums' | 'playlists' | 'upload' | 'spotify'
 export interface Handlers {
   onPlay: (id: string, queue: string[]) => void
   onAdd: (id: string) => void
